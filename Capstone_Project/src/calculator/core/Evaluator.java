@@ -11,21 +11,27 @@ public class Evaluator {
 	public static double eval(String expr) {
 
 	    // Handle assignment: x = expression
-	    if (expr.contains("=")) {
-	        String[] parts = expr.split("=", 2);
-	        String varName = parts[0].trim();
-	        String rhs = parts[1].trim();
+	    if (expr.contains("=")) {                //"x=5+2"
+	        String[] parts = expr.split("=", 2); //["x","5+2"]	
+	        String varName = parts[0].trim();	 //[Removes any leading and trailing spaces from the variable"]
+	        String rhs = parts[1].trim();        //[Removes any leading and trailing spaces from the expression which is also a string]
 
 	        double value = eval(rhs); // recursive evaluation
-	        VariableStore.set(varName, value);
-	        return value;
+	        VariableStore.set(varName, value);  //stores variable and its value to the memory in this case it is x and 7
+	        return value; //  returns 7
 	    }
+	    
+	  //We are using a tokenizer to convert strings to tokens
 
-	    List<String> rpn = Parser.toRPN(Tokenizer.tokenize(expr));
-	    Stack<Double> stack = new Stack<>();
-
-	    for (String t : rpn) {
-	        if (t.matches("\\d+(\\.\\d+)?"))
+	    List<String> rpn = Parser.toRPN(Tokenizer.tokenize(expr));      //Tokenizer.tokenize(expr)
+	    																//["sqrt(16)+2"]
+	    Stack<Double> stack = new Stack<>();							// ["sqrt",(,16,),+"2"]
+	    																// sqrt->stack
+	    																// (->stack(output-> sqrt)
+	    																// )->pop
+	    																//+->stack
+	    for (String t : rpn) {											//2 -> output
+	        if (t.matches("\\d+(\\.\\d+)?"))							//end-> pop +
 	            stack.push(Double.parseDouble(t));
 	        else if (VariableStore.exists(t))
 	            stack.push(VariableStore.get(t));

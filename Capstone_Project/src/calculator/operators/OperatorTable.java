@@ -4,7 +4,7 @@ import java.util.*;
 
 public class OperatorTable {
 
-    public static final Map<String, Operator> OPS = new HashMap<>();
+    public static final Map<String, Operator> OPS = new HashMap<>();  //OperatorTable acts as a centralized registry that maps operator symbols to polymorphic operator implementations, encapsulating precedence, associativity, and execution logic using interfaces and lambdas.
 
     static {
         OPS.put("+", new Op(1, true, (a,b)->a+b));

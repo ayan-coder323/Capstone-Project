@@ -1,5 +1,7 @@
 package calculator.cli;
 
+//Layer responsible for taking output and printing output and Calling core logic
+
 import java.util.*;
 import calculator.core.*;
 import calculator.model.*;
@@ -13,7 +15,7 @@ public class CLI_Calculator {
         Scanner sc = new Scanner(System.in);
         System.out.println("Advanced Calculator (type exit)");
 
-        while (true) {
+        while (true) { // This is a REPL which stands for Reads Evaluates Prints and Loops
             System.out.print("> ");
             String line = sc.nextLine().trim();
 

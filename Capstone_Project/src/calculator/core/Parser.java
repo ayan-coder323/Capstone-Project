@@ -5,14 +5,14 @@ import java.util.*;
 import calculator.operators.*;
 import calculator.functions.*;
 
-public class Parser {
+public class Parser { // Utility class No objects needed Only static behaviour
 
-    public static List<String> toRPN(List<String> tokens) {
-        Stack<String> stack = new Stack<>();
+    public static List<String> toRPN(List<String> tokens) { // Inputs list of tokens from Tokenizer
+        Stack<String> stack = new Stack<>(); //Stacks convert expression to REversed Polish Notations so that it can be easily evaluated using Stacks
         List<String> output = new ArrayList<>();
 
         for (String t : tokens) {
-            if (t.matches("\\d+(\\.\\d+)?"))
+            if (t.matches("\\d+(\\.\\d+)?")) // If token is a number sends directly to output
                 output.add(t);
             else if (FunctionRegistry.FUNCS.containsKey(t))
                 stack.push(t);
