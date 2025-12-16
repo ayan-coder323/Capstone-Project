@@ -6,7 +6,7 @@ Advanced operators (^, %)
 Each operation has different logic but follows a common interface.
 If we create these objects directly using new everywhere:
 Code becomes long and messy 
-Adding anew function means changing multiple files 
+Adding a new function means changing multiple files 
 Violates open closed principle
 Centralization of object creation means The factory decides which operator/function object to create based on user input.
 Loose Coupling
