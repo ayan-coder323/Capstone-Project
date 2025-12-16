@@ -18,4 +18,4 @@ Easier testing
 What is Factory Design Pattern : The Factory Design Pattern is a creational design pattern that provides a way to create objects without exposing the object creation logic to the client.
 Instead of using "new" directly, the client asks a factory to give it an object.
 What are the factory functions in our project which creates object on its own?
-We have a class in the operators package called OperatorTable which uses lambda expressions to evaluate the expressions given to the stack it creates object automatically based on input given by the user for a particular opertaion.
+We have a class in the operators package called OperatorTable which uses lambda expressions to evaluate the expressions given to the stack it creates object automatically based on input given by the user for a particular operation.
